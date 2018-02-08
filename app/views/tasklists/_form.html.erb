@@ -1,3 +1,5 @@
+
+
 <%= form_for(tasklist) do |f| %>
 
 <% if tasklist.errors.any? %>
@@ -12,12 +14,22 @@
 
 <% end %>
 
-<%= f.label :content, 'タスク' %>
-<%= f.text_field :content %>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-lg-offset-3">
+    <%= f.label :content, 'タスク' %>
+    <%= f.text_field :content, class: 'form-control' %>
+  </div>
+</div>
 
-<%= f.label :status, '状況' %>
-<%= f.text_field :status %>
+  <div class="form-group">
+      <div class="col-sm-offset-2 col-lg-offset-3">
+    <%= f.label :status, '状況' %>
+    <%= f.text_field :status, class: 'form-control' %>
+  </div>
+  </div>
 
 <%= f.submit '追加' %>
 
 <% end %>
+
+</div>
