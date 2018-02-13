@@ -54,13 +54,13 @@ class TasklistsController < ApplicationController
 
 private
 
-def set_tasklist
-  @tasklist = Tasklist.find(params[:id])
-end
-
-#Strong Paramater
-def tasklist_params
-  params.require(:tasklist).permit(:content, :status)
-end
+  def set_tasklist
+    @tasklist = Tasklist.find(params[:id])
+  end
+  
+  #Strong Paramater
+  def tasklist_params
+    params.require(:tasklist).permit(:content, :status)
+  end
 
 end
