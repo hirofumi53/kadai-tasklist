@@ -1,0 +1,11 @@
+<% if model.errors.any? %>
+
+  <div class="alert alert-warning">
+    <ul>
+      <% model.errors.full_tasklists.each do |tasklist| %>
+      <li>
+        <%= tasklist %>
+      </li>
+    </ul>
+  </div>
+<% end %>
