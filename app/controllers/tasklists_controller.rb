@@ -1,5 +1,4 @@
 class TasklistsController < ApplicationController
-  before_action :set_tasklist, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
   before_action :require_user_logged_in
   
@@ -8,7 +7,8 @@ class TasklistsController < ApplicationController
   end
   
   def show
-    set_tasklist
+    correct_user
+    
   end
   
   def new
@@ -29,12 +29,13 @@ class TasklistsController < ApplicationController
   end
   
   def edit
-    set_tasklist
+    correct_user
     
   end
   
   def update
-    set_tasklist
+    correct_user
+    
     
     
     if @tasklist.update(tasklist_params)
@@ -47,7 +48,8 @@ class TasklistsController < ApplicationController
   end
   
   def destroy
-    set_tasklist
+    correct_user
+    
     
     @tasklist.destroy
     
@@ -57,9 +59,7 @@ class TasklistsController < ApplicationController
 
 private
 
-  def set_tasklist
-    @tasklist = Tasklist.find(params[:id])
-  end
+
   
   #Strong Paramater
   def tasklist_params
